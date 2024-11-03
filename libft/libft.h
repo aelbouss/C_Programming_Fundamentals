@@ -6,13 +6,15 @@
 /*   By: aelbouss <aelbouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 14:24:13 by aelbouss          #+#    #+#             */
-/*   Updated: 2024/11/02 19:46:24 by aelbouss         ###   ########.fr       */
+/*   Updated: 2024/11/03 16:54:18 by aelbouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);

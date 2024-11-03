@@ -6,22 +6,11 @@
 /*   By: aelbouss <aelbouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 11:15:57 by aelbouss          #+#    #+#             */
-/*   Updated: 2024/11/02 17:55:40 by aelbouss         ###   ########.fr       */
+/*   Updated: 2024/11/03 17:24:54 by aelbouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
+#include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
@@ -29,8 +18,10 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	size_t	src_indx;
 	size_t	totallen;
 
-	if (!dst || !src)
+	if (!src)
 		return (0);
+	if (!dst)
+		return (ft_strlen(src));
 	totallen = ft_strlen(dst) + ft_strlen(src);
 	if (ft_strlen(dst) >= dstsize || dstsize == 0)
 		return (totallen);

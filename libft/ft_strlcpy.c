@@ -6,21 +6,11 @@
 /*   By: aelbouss <aelbouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 17:56:15 by aelbouss          #+#    #+#             */
-/*   Updated: 2024/11/02 18:04:36 by aelbouss         ###   ########.fr       */
+/*   Updated: 2024/11/03 17:24:59 by aelbouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
+#include "libft.h"
 
 size_t	ft_strlcpy(char *dst, const char*src, size_t dstsize)
 {

@@ -6,11 +6,11 @@
 /*   By: aelbouss <aelbouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 23:20:11 by aelbouss          #+#    #+#             */
-/*   Updated: 2024/11/02 18:13:01 by aelbouss         ###   ########.fr       */
+/*   Updated: 2024/11/03 17:26:04 by aelbouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
 int	ft_strncmp( const char *first, const char *second, size_t length)
 {

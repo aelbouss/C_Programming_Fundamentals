@@ -6,11 +6,11 @@
 /*   By: aelbouss <aelbouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 23:20:48 by aelbouss          #+#    #+#             */
-/*   Updated: 2024/11/02 14:23:57 by aelbouss         ###   ########.fr       */
+/*   Updated: 2024/11/03 17:21:30 by aelbouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {

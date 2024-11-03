@@ -6,11 +6,21 @@
 /*   By: aelbouss <aelbouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 23:20:42 by aelbouss          #+#    #+#             */
-/*   Updated: 2024/11/02 18:39:12 by aelbouss         ###   ########.fr       */
+/*   Updated: 2024/11/03 17:18:17 by aelbouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
+
+int	cnt_nbr(const char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] >= '0' && s[i] <= '9')
+		i++;
+	return (i);
+}
 
 int	ft_atoi(const char *str)
 {
@@ -20,6 +30,8 @@ int	ft_atoi(const char *str)
 
 	if (!str)
 		return (0);
+	if (cnt_nbr(str) >= 20)
+		return (-1);
 	i = 0;
 	sign = 1;
 	result = 0;

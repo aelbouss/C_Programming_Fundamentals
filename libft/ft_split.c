@@ -6,12 +6,11 @@
 /*   By: aelbouss <aelbouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 23:20:07 by aelbouss          #+#    #+#             */
-/*   Updated: 2024/11/02 14:53:33 by aelbouss         ###   ########.fr       */
+/*   Updated: 2024/11/03 17:17:09 by aelbouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
 static size_t	cnt_word(char const*s, char c)
 {

@@ -6,42 +6,11 @@
 /*   By: aelbouss <aelbouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 23:20:24 by aelbouss          #+#    #+#             */
-/*   Updated: 2024/11/02 18:34:51 by aelbouss         ###   ########.fr       */
+/*   Updated: 2024/11/03 17:27:33 by aelbouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	char	*ptr;
-	size_t	i;
-
-	if (!s || start > ft_strlen(s))
-		return (NULL);
-	ptr = malloc((len + 1) * sizeof(char));
-	if (ptr == NULL)
-		return (NULL);
-	i = 0;
-	while (i < len)
-	{
-		ptr[i] = s[start++];
-		i++;
-	}
-	ptr[i] = '\0';
-	return (ptr);
-}
+#include "libft.h"
 
 int	find_caracter( char c, char const *soc)
 {

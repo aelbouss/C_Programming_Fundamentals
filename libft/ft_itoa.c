@@ -6,12 +6,11 @@
 /*   By: aelbouss <aelbouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 11:15:28 by aelbouss          #+#    #+#             */
-/*   Updated: 2024/11/02 14:20:20 by aelbouss         ###   ########.fr       */
+/*   Updated: 2024/11/03 17:20:36 by aelbouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
 int	nbr_len(int n)
 {

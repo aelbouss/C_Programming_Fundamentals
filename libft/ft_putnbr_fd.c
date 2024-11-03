@@ -6,11 +6,11 @@
 /*   By: aelbouss <aelbouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 14:31:10 by aelbouss          #+#    #+#             */
-/*   Updated: 2024/11/02 14:31:59 by aelbouss         ###   ########.fr       */
+/*   Updated: 2024/11/03 17:22:36 by aelbouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 void	t_putchar_fd(char c, int fd)
 {

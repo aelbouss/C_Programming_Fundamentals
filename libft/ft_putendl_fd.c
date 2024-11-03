@@ -6,11 +6,11 @@
 /*   By: aelbouss <aelbouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 20:25:37 by aelbouss          #+#    #+#             */
-/*   Updated: 2024/11/02 14:29:37 by aelbouss         ###   ########.fr       */
+/*   Updated: 2024/11/03 17:22:22 by aelbouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 void	ft_putendl_fd(char *s, int fd)
 {
