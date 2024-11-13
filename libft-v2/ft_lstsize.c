@@ -6,13 +6,13 @@
 /*   By: aelbouss <aelbouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 23:43:28 by aelbouss          #+#    #+#             */
-/*   Updated: 2024/11/11 23:43:44 by aelbouss         ###   ########.fr       */
+/*   Updated: 2024/11/13 03:32:47 by aelbouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	t_lstsize(t_list *lst)
+int	ft_lstsize(t_list *lst)
 {
 	int	cnt;
 
