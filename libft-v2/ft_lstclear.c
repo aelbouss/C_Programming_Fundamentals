@@ -1,58 +1,30 @@
-#include  "libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aelbouss <aelbouss@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/11 23:39:36 by aelbouss          #+#    #+#             */
+/*   Updated: 2024/11/11 23:39:50 by aelbouss         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void	freenode(void *lst)
-{
-	free(((t_list *)lst) -> content);
-}
+#include "libft.h"
+
 void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
 	t_list	*prev;
 	t_list	*tmp;
 
-	tmp = (*lst);
+	if (!lst || !del)
+		return ;
 	prev = (*lst);
-
-	while (tmp != NULL)
+	while (prev != NULL)
 	{
-		tmp = tmp -> next;
-		del(prev);
-		free(prev);
+		tmp = prev -> next;
+		ft_lstdelone(prev, del);
 		prev = tmp;
 	}
-	(*lst) = NULL; 
-}
-
-int	main(void)
-{
-	t_list	*head ;
-	t_list	*newnode;
-	t_list	*tmp;
-	int	i;
-
-	i = 0;
-	head  = NULL;
-	while (i < 4)
-	{
-		newnode = (t_list *)malloc(sizeof(t_list));
-		if (newnode == NULL)
-		{
-			printf("error\n");
-			return (-1);
-		}
-		
-		newnode ->content = ft_strdup("anass");
-		if (head == NULL)
-		{
-			head = newnode;
-			tmp  = newnode;
-		}
-		else
-		{
-			tmp -> next = newnode;
-			tmp = newnode;
-		}
-		i++;
-	}
-	tmp = head;
-	ft_lstclear(&tmp,&freenode);
+	(*lst) = NULL;
 }

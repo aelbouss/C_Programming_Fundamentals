@@ -6,7 +6,7 @@
 /*   By: aelbouss <aelbouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 15:00:31 by aelbouss          #+#    #+#             */
-/*   Updated: 2024/11/09 17:11:07 by aelbouss         ###   ########.fr       */
+/*   Updated: 2024/11/11 23:27:27 by aelbouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,3 @@ t_list	*ft_lstnew(void *content)
 	newnode -> next = NULL;
 	return (newnode);
 }
-
-/*
-int	main(void)
-{
-	t_list	*head ;
-
-	char * arr = "anass" ;
-	
-	head = ft_lstnew(arr);
-		printf("%s",head->content);
-}
-*/

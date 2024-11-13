@@ -6,7 +6,7 @@
 /*   By: aelbouss <aelbouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 23:20:07 by aelbouss          #+#    #+#             */
-/*   Updated: 2024/11/03 17:17:09 by aelbouss         ###   ########.fr       */
+/*   Updated: 2024/11/13 02:39:17 by aelbouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static size_t	cnt_str(char const *s, char c)
 	return (i);
 }
 
-static char	*ft_strdup( char const *s, size_t len)
+static	char	*ft_stringdup( char const *s, size_t len)
 {
 	size_t	i;
 	char	*ptr;
@@ -86,7 +86,7 @@ char	**ft_split(char const *s, char c)
 		else
 		{
 			wl = cnt_str(&s[i], c);
-			ptr[j++] = ft_strdup(&s[i], wl);
+			ptr[j++] = ft_stringdup(&s[i], wl);
 			if (ptr[j - 1] == NULL)
 				freearrayofptrs(ptr, j - 1);
 			i = i + wl;
