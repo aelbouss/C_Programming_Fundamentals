@@ -15,15 +15,15 @@
 void	*ft_calloc(size_t count, size_t size)
 {
 	void	*ptr;
-	size_t	totalsize;
 	size_t	i;
 
-	totalsize = count * size ;
-	ptr = malloc (totalsize);
+	if (count && size > SIZE_MAX / count)
+		return (NULL);
+	ptr = malloc (count * size);
 	if (ptr == NULL)
 		return (NULL);
 	i = 0;
-	while (i < totalsize)
+	while (i < (count * size))
 	{
 		((unsigned char *)ptr)[i] = 0;
 		i++;
