@@ -6,92 +6,95 @@
 /*   By: aelbouss <aelbouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 23:20:07 by aelbouss          #+#    #+#             */
-/*   Updated: 2024/11/13 02:39:17 by aelbouss         ###   ########.fr       */
+/*   Updated: 2024/11/14 01:30:32 by aelbouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	cnt_word(char const*s, char c)
+static	int	cnt_word(char const *str, char c)
 {
-	size_t	i;
-	size_t	cnt;
+	int	i;
+	int	cnt;
 
-	i = 0;
+	if (!str)
+		return (0);
 	cnt = 0;
-	while (s[i])
+	i = 0;
+	while (str[i])
 	{
-		if ((i == 0 && s[i - 1] != c) || (s[i] == c))
+		if ((i == 0 || str[i - 1] == c) && (str[i] != c))
 			cnt++;
 		i++;
 	}
 	return (cnt);
 }
 
-static size_t	cnt_str(char const *s, char c)
+static	int	cnt_str(const char *str, char c)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	while (s[i] != c && s[i])
+	while (str[i] != c && str[i] != '\0')
 		i++;
 	return (i);
 }
 
-static	char	*ft_stringdup( char const *s, size_t len)
+static char	*ft_stringdup(const char *src, int len)
 {
-	size_t	i;
-	char	*ptr;
+	char	*str;
+	int		i;
 
-	i = 0 ;
-	ptr = (char *)malloc(len + 1 * sizeof(char));
-	if (ptr == NULL)
-		return (ptr);
 	i = 0;
-	while (i < len && s[i])
+	if (!src)
+		return (NULL);
+	str = (char *)malloc((len + 1) * sizeof(char));
+	if (!str)
+		return (NULL);
+	while (i < len)
 	{
-		ptr[i] = s[i];
+		str[i] = src[i];
 		i++;
 	}
-	ptr[i] = '\0';
-	return (ptr);
+	str[i] = '\0';
+	return (str);
 }
 
-static void	freearrayofptrs(char **ptr, size_t index)
+static	void	free_split(char **arr, int arrlen)
 {
-	size_t	i;
-
-	i = 0;
-	while (i < index)
-		free(ptr[i++]);
-	free(ptr);
+	while (arrlen > 0)
+	{
+		free(arr[arrlen]);
+		arrlen--;
+	}
+	free(arr);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**ptr;
-	size_t	i;
-	size_t	wl;
-	size_t	j;
+	char			**str;
+	int				i;
+	int				j;
 
-	ptr = (char **)malloc((cnt_word(s, c) + 1) * sizeof(char *));
-	if (ptr == NULL || !s)
-		return (NULL);
-	i = 0;
 	j = 0;
+	i = 0;
+	if (!s)
+		return (NULL);
+	str = (char **)malloc((cnt_word(s, c) + 1) * sizeof(char *));
+	if (!str)
+		return (NULL);
 	while (s[i])
 	{
 		if (s[i] == c)
 			i++;
 		else
 		{
-			wl = cnt_str(&s[i], c);
-			ptr[j++] = ft_stringdup(&s[i], wl);
-			if (ptr[j - 1] == NULL)
-				freearrayofptrs(ptr, j - 1);
-			i = i + wl;
+			str[j++] = ft_stringdup((s + i), cnt_str((s + i), c));
+			if (!str[j - 1])
+				free_split(str, j - 1);
+			i += cnt_str((s + i), c);
 		}
 	}
-	ptr[j] = NULL;
-	return (ptr);
+	str[j] = NULL;
+	return (str);
 }

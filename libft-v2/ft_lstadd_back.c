@@ -6,7 +6,7 @@
 /*   By: aelbouss <aelbouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 23:42:53 by aelbouss          #+#    #+#             */
-/*   Updated: 2024/11/11 23:42:54 by aelbouss         ###   ########.fr       */
+/*   Updated: 2024/11/13 20:30:44 by aelbouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*tmp;
 
-	if (!lst)
+	if (!new)
 		return ;
 	if (*lst == NULL)
 	{
@@ -29,5 +29,5 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		tmp = tmp -> next;
 	}
 	tmp -> next = new;
-	new ->next = NULL;
+	//new ->next = NULL;
 }
