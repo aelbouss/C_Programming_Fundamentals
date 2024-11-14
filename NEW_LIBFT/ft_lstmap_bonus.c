@@ -1,35 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelbouss <aelbouss@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/30 23:20:28 by aelbouss          #+#    #+#             */
-/*   Updated: 2024/11/03 17:16:14 by aelbouss         ###   ########.fr       */
+/*   Created: 2024/11/11 23:40:44 by aelbouss          #+#    #+#             */
+/*   Updated: 2024/11/11 23:41:11 by aelbouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	char	*ptr;
-	size_t	i;
+	t_list	*headlist;
+	t_list	*newnode;
+	void	*newcontent;
 
-	if (!s || start >= ft_strlen(s))
+	if (!lst || !f || !del)
 		return (NULL);
-	if (start + len > ft_strlen(s))
-		len = ft_strlen(s) - start;
-	ptr = malloc(len + 1 * sizeof(char));
-	if (ptr == NULL)
-		return (NULL);
-	i = 0;
-	while (i < len)
+	headlist = NULL;
+	while (lst)
 	{
-		ptr[i] = s[start++];
-		i++;
+		newcontent = f(lst ->content);
+		newnode = ft_lstnew(newcontent);
+		if (!newnode)
+		{
+			del(newcontent);
+			ft_lstclear(&headlist, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&headlist, newnode);
+		lst = lst -> next;
 	}
-	ptr[i] = '\0';
-	return (ptr);
+	return (headlist);
 }

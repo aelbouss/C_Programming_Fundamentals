@@ -62,7 +62,7 @@ static char	*ft_stringdup(const char *src, int len)
 
 static	void	free_split(char **arr, int arrlen)
 {
-	while (arrlen > 0)
+	while (arrlen >= 0)
 	{
 		free(arr[arrlen]);
 		arrlen--;
@@ -73,9 +73,8 @@ static	void	free_split(char **arr, int arrlen)
 char	**ft_split(char const *s, char c)
 {
 	char			**str;
-	int				i;
-	int				j;
 
+	int (i), (j);
 	j = 0;
 	i = 0;
 	if (!s)
@@ -91,10 +90,9 @@ char	**ft_split(char const *s, char c)
 		{
 			str[j++] = ft_stringdup((s + i), cnt_str((s + i), c));
 			if (!str[j - 1])
-				free_split(str, j - 1);
+				return (free_split(str, j - 1), NULL);
 			i += cnt_str((s + i), c);
 		}
 	}
-	str[j] = NULL;
-	return (str);
+	return (str[j] = NULL, str);
 }

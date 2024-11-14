@@ -28,10 +28,9 @@ int	find_caracter( char c, char const *soc)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		i;
-	int		j;
 	char	*ptr;
 
+	int (i), (j);
 	if (!s1 || !set)
 		return (NULL);
 	i = 0;
@@ -40,8 +39,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (s1[i] == '\0')
 	{
 		ptr = malloc (1 * sizeof(char));
-		ptr [0] = '\0';
-		return (ptr);
+		if (ptr == NULL)
+			return (NULL);
+		return (ptr [0] = '\0', ptr);
 	}
 	i = 0;
 	while (s1[i] && find_caracter(s1[i], set))
