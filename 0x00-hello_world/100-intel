@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# a script generate assembly code intel  version based  on  a  file stored  in CFILE env variable
+
+gcc -S $CFILE -masm=intel $CFILE
